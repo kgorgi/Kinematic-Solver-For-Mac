@@ -3,7 +3,7 @@
 //  Kinematic Solver For Mac
 //
 //  Created by Kian Gorgichuk on 14-06-09.
-//  Copyright (c) 2014 Kian Gorgichuk. All rights reserved.
+//  Copyright (c) 2015 Kian Gorgichuk. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
