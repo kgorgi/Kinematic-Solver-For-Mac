@@ -308,7 +308,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kinematic Solver For Mac/Kinematic Solver for Mac.temp_caseinsensitive_rename-Prefix.pch";
+				GCC_PREFIX_HEADER = "Kinematic Solver For Mac/Kinematic Solver for Mac Prefix.pch";
 				INFOPLIST_FILE = "Kinematic Solver for Mac/Kinematic Solver for Mac Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "gorgichuk.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -321,7 +321,7 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Kinematic Solver For Mac/Kinematic Solver for Mac.temp_caseinsensitive_rename-Prefix.pch";
+				GCC_PREFIX_HEADER = "Kinematic Solver For Mac/Kinematic Solver for Mac Prefix.pch";
 				INFOPLIST_FILE = "Kinematic Solver for Mac/Kinematic Solver for Mac Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "gorgichuk.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
