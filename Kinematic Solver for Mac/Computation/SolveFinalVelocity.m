@@ -10,7 +10,7 @@
 
 @implementation SolveFinalVelocity
 
--(NSNumber*) calculateFinVelocity
+-(NSNumber*) calculateFinalVelocity
 {
     NSNumber* _answer;
     double temp;
@@ -25,7 +25,7 @@
                 temp = (_Vi * _Vi) + (2 * _A * _D);
                 if( temp < 0)
                     [ NSException raise:@"Impossible Scenario" format:@"The Values Entered Produce a Physics Scenario That is Not Possible" ];
-                _answer = [[ NSNumber alloc ] initWithDouble: [ self squareRoot:temp ]];
+                //_answer = [[ NSNumber alloc ] initWithDouble: [ self squareRoot:temp ]];
                 break;
             case 2:
                 _answer = [[ NSNumber alloc ] initWithDouble:( (2 * _D) / _T) - _Vi];

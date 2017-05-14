@@ -12,6 +12,7 @@
 @implementation KinematicSolverGUI
 -(id) initWithValues: (NSString*) time Displacement: (NSString*) displacement Acceleration: (NSString*) acceleration InitialVelocity: (NSString*) initVelocity FinalVelocity: (NSString*) finVelocity
 {
+    /*
     if(!(self = [ super init ]) )
         return nil;
     
@@ -114,6 +115,7 @@
     {
         
     }
+     */
     return self;
 }
 

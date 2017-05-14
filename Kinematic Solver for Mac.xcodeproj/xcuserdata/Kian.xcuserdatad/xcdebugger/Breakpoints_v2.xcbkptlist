@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kinematic Solver for Mac/Computation/SolveFinalVelocity.m"
-            timestampString = "516477907.28784"
+            timestampString = "516481183.806482"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "-calculateFinVelocity"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "-calculateFinalVelocity"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,6 +62,22 @@
             startingLineNumber = "12"
             endingLineNumber = "12"
             landmarkName = "-calculateTime"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Kinematic Solver Tests/Kinematic_Solver_Tests.m"
+            timestampString = "516481183.806482"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-testSetTime"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

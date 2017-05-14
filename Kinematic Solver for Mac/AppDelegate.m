@@ -32,7 +32,7 @@
 
 //Action to Calculate Value
 - (IBAction)calculateValue:(NSButton *)sender {
-    
+    /*
     //Pull Strings From TextFields and Initialize Variables
     NSString *stringd = [ [ NSString alloc ] initWithString:[ txtDisplacement stringValue ] ];
     NSString *stringt = [ [ NSString alloc ] initWithString:[ txtTime stringValue ] ];
@@ -127,10 +127,11 @@
     [ stringvf release ];
     [ calcAns release ];
     [ kinSolve release ];
+     */
+} 
 
-}
-
-- (IBAction)solvedForClicked:(id)sender {    
+- (IBAction)solvedForClicked:(id)sender {
+    /*
     //Enable All TextBoxs
     [ txtDisplacement setEnabled:YES ];
     [ txtTime setEnabled:YES ];
@@ -166,6 +167,7 @@
         [ txtFinalVelocity setStringValue:clearString];
         [ txtFinalVelocity setEnabled:NO ];
     }
+     */
 }
 
 @end

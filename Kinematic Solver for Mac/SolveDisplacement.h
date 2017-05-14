@@ -13,6 +13,7 @@
 
 @interface SolveDisplacement : KinematicSolver
 
+-(id) init;
 -(NSNumber*) calculateDisplacement;
 
 @end

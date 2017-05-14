@@ -6,9 +6,19 @@
 //  Copyright © 2017 Kian Gorgichuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 #include "SolveDisplacement.h"
+
+@implementation SolveDisplacement
+
+//Initialization
+-(id) init
+{
+    if(!(self = [ super init ]) )
+        return nil;
+    
+    return self;
+}
+
 -(NSNumber*) calculateDisplacement
 {
     NSNumber* _answer;
@@ -43,3 +53,5 @@
         
     }
 }
+
+@end

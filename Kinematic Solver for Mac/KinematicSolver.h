@@ -10,17 +10,17 @@
 #import <Foundation/Foundation.h>
 
 @interface KinematicSolver : NSObject {
-    @private
+    @protected
         //Values Used To Determine Answer
         double _D;
         double _T;
         double _A;
         double _Vf;
         double _Vi;
+    
         //Support Variables
         NSString* _blankValueStr;
         int _blankValue;
-    @protected
         bool _exceptionThrown;
     
     
@@ -44,7 +44,6 @@
 -(NSNumber*) getInitVelocity;
 -(NSNumber*) getFinVelocity;
 -(NSString*) getBlankValue;
--(NSNumber*) getBlankValueNum;
 -(bool) getExceptionThrown;
 
 //Calculator Specific Value, Convert Value to Double

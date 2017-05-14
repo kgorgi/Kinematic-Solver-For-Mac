@@ -10,7 +10,5 @@
 
 @interface KinematicSolverGUI : KinematicSolver
 -(id) initWithValues: (NSString*) time Displacement: (NSString*) displacement Acceleration: (NSString*) acceleration InitialVelocity: (NSString*) initVelocity FinalVelocity: (NSString*) finVelocity;
--(double) quadEquation:(double) a andb: (double) b withc:(double) c;
--(double) squareRoot:(double) num;
--(void) ExceptionHandle:(NSException*) ex;
+
 @end

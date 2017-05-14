@@ -14,6 +14,7 @@
 @interface SolveTime : KinematicSolver
 
 -(NSNumber*) calculateTime;
+
 -(double) quadEquation:(double) a andb: (double) b withc:(double) c;
 
 @end

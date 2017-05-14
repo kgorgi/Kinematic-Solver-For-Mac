@@ -126,11 +126,6 @@
     return _blankValueStr;
 }
 
--(NSNumber*) getBlankValueNum
-{
-    return [[NSNumber alloc] initWithInt: _blankValue];
-}
-
 -(bool) getExceptionThrown
 {
     return _exceptionThrown;

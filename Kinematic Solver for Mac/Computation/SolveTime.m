@@ -16,7 +16,7 @@
     double a, b, c;
     
     @try {
-        switch([[self getBlankValueNum] integerValue])
+        switch(_blankValue)
         {
             case 0:
                 _answer = [[ NSNumber alloc ] initWithDouble:(_Vf - _Vi) / _A];
@@ -69,9 +69,10 @@
     @finally {
         
     }
+}
     
 -(double) quadEquation:(double) a andb: (double) b withc:(double) c
-    {
+{
         //Calculate Roots
         double root1 = ( (-1 * b) + sqrt( (b * b) - (4 * a * c))) / (2 * a);
         double root2 = ( (-1 * b) - sqrt( (b * b) - (4 * a * c))) / (2 * a);
@@ -111,5 +112,7 @@
             return root2;
         }
         return 0.0;
-    }
+    
 }
+
+@end
