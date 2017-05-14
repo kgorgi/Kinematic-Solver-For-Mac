@@ -1,9 +1,9 @@
 //
 //  KinematicSolver.h
-//  Kinematic Solver For Mac
+//  Kinematic Solver for Mac
 //
 //  Created by Kian Gorgichuk on 14-10-19.
-//  Copyright (c) 2015 Kian Gorgichuk. All rights reserved.
+//  Copyright (c) 2017 Kian Gorgichuk. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
