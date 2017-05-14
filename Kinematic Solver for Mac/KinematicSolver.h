@@ -5,7 +5,8 @@
 //  Created by Kian Gorgichuk on 14-10-19.
 //  Copyright (c) 2017 Kian Gorgichuk. All rights reserved.
 //
-
+#ifndef KinematicSolver_h
+#define KinematicSolver_h
 #import <Foundation/Foundation.h>
 
 @interface KinematicSolver : NSObject {
@@ -19,9 +20,9 @@
         //Support Variables
         NSString* _blankValueStr;
         int _blankValue;
-    
     @protected
         bool _exceptionThrown;
+    
     
 }
 
@@ -43,19 +44,15 @@
 -(NSNumber*) getInitVelocity;
 -(NSNumber*) getFinVelocity;
 -(NSString*) getBlankValue;
+-(NSNumber*) getBlankValueNum;
 -(bool) getExceptionThrown;
 
 //Calculator Specific Value, Convert Value to Double
 -(NSNumber*) convertToDouble: (NSString*) str;
--(NSNumber*) calculateDisplacement;
--(NSNumber*) calculateTime;
--(NSNumber*) calculateAcceleration;
--(NSNumber*) calculateInitVelocity;
--(NSNumber*) calculateFinVelocity;
 
--(double) squareRoot:(double) num; //Use Subclass To Implement
--(double) quadEquation:(double) a andb: (double) b withc:(double) c;  //Use Subclass to Implement
-//Exception Handling
--(void) ExceptionHandle:(NSException*) ex; //Use Subclass to Implement
+//Exception Handling Logging
+-(void) ExceptionHandle:(NSException*) ex;
 
 @end
+
+#endif

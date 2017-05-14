@@ -117,49 +117,7 @@
     return self;
 }
 
--(double) quadEquation:(double) a andb: (double) b withc:(double) c
-{
-	//Calculate Roots
-    double root1 = ( (-1 * b) + sqrt( (b * b) - (4 * a * c))) / (2 * a);
-	double root2 = ( (-1 * b) - sqrt( (b * b) - (4 * a * c))) / (2 * a);
-	
-	//Roots Equal
-    if(root1 == root2)
-		return root1;
-	//Both Roots are Positive (time cannot be negative)
-    else if (root1 >= 0 && root2 >= 0)
-	{
-		
-		NSLog(@"ERROR: Quadratic Equation has Two Valid Roots!");
-        NSInteger alert = NSRunAlertPanel(@"Kinematic Solver For Mac", @"Quadratic Equation has Two Valid Roots! Please Select the Correct Root: Root 1 = %f  Root 2 = %f",  @"Root 1", @"Root 2", nil, root1, root2);
-        switch(alert) {
-            case NSAlertDefaultReturn:
-            {
-                return root1;
-                break;
-            }
-            case NSAlertAlternateReturn:
-            {
-                return root2;
-                break;
-            }
-            default: break;
-                
-        }
-    }
-	//Root 1 is Positive, Root 2 is Negative
-    else if (root1 >= 0 && root2 < 0)
-	{
-		return root1;
-	}
-	//Root 1 is Negative, Root 2 is Positive
-    else
-	{
-		return root2;
-	}
-    return 0.0;
-}
-
+/*
 -(double) squareRoot:(double)num
 {
     double ans = sqrt(num);
@@ -179,18 +137,8 @@
         default: return ans;
     }
     
-}
+} */
 
--(void) ExceptionHandle:(NSException*) ex
-{
-    //Used to tell calling code that exception has occured
-    _exceptionThrown = true;
-    
-    //Exception Handling Code
-    NSLog(@"ERROR: %@", [ ex reason ]);
-    NSRunAlertPanel(@"Kinematic Solver For Mac",@"ERROR: %@", @"Close", nil, nil, [ex reason]);
-    
-}
 
 
 @end
