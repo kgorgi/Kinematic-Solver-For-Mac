@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8DF971451946B08D007FA4AC"
-               BuildableName = "Kinematic Solver For Mac.app"
-               BlueprintName = "Kinematic Solver For Mac"
+               BuildableName = "Kinematic Solver for Mac.app"
+               BlueprintName = "Kinematic Solver for Mac"
                ReferencedContainer = "container:Kinematic Solver for Mac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8DF971451946B08D007FA4AC"
-            BuildableName = "Kinematic Solver For Mac.app"
-            BlueprintName = "Kinematic Solver For Mac"
+            BuildableName = "Kinematic Solver for Mac.app"
+            BlueprintName = "Kinematic Solver for Mac"
             ReferencedContainer = "container:Kinematic Solver for Mac.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8DF971451946B08D007FA4AC"
-            BuildableName = "Kinematic Solver For Mac.app"
-            BlueprintName = "Kinematic Solver For Mac"
+            BuildableName = "Kinematic Solver for Mac.app"
+            BlueprintName = "Kinematic Solver for Mac"
             ReferencedContainer = "container:Kinematic Solver for Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8DF971451946B08D007FA4AC"
-            BuildableName = "Kinematic Solver For Mac.app"
-            BlueprintName = "Kinematic Solver For Mac"
+            BuildableName = "Kinematic Solver for Mac.app"
+            BlueprintName = "Kinematic Solver for Mac"
             ReferencedContainer = "container:Kinematic Solver for Mac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
