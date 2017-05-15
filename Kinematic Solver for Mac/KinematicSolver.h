@@ -7,6 +7,7 @@
 //
 #ifndef KinematicSolver_h
 #define KinematicSolver_h
+
 #import <Foundation/Foundation.h>
 
 @interface KinematicSolver : NSObject {
@@ -30,24 +31,24 @@
 -(id) init; 
 
 //Setters
--(void) setTime: (NSString*) time;
--(void) setDisplacement: (NSString*) displacement;
--(void) setAcceleration: (NSString*) accel;
--(void) setInitVelocity: (NSString*) initVelocity;
--(void) setFinVelocity: (NSString*) finVelocity;
+-(void) setTime: (NSNumber*) time;
+-(void) setDisplacement: (NSNumber*) displacement;
+-(void) setAcceleration: (NSNumber*) accel;
+-(void) setInitialVelocity: (NSNumber*) initVelocity;
+-(void) setFinalVelocity: (NSNumber*) finVelocity;
 -(void) setBlankValue: (NSString*) value;
 
 //Getters
 -(NSNumber*) getTime;
 -(NSNumber*) getDisplacement;
 -(NSNumber*) getAcceleration;
--(NSNumber*) getInitVelocity;
--(NSNumber*) getFinVelocity;
+-(NSNumber*) getInitialVelocity;
+-(NSNumber*) getFinalVelocity;
 -(NSString*) getBlankValue;
 -(bool) getExceptionThrown;
 
 //Calculator Specific Value, Convert Value to Double
--(NSNumber*) convertToDouble: (NSString*) str;
++(NSNumber*) convertToDouble: (NSString*) str;
 
 //Exception Handling Logging
 -(void) ExceptionHandle:(NSException*) ex;

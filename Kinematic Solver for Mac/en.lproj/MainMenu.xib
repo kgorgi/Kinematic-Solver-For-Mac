@@ -299,7 +299,7 @@ DQ
                             <string key="title">
 • Select the variable to solve using the buttons on the left side.
 • One value must be left blank, as only three values are required. 
-• Use "124e5" for Scientific Notation.
+• Use "124e5" for Scientific Notation (no decimal in exponent).
 • Negative Values are allowed Example: -124e-5</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

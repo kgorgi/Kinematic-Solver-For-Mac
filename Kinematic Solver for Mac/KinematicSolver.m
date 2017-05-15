@@ -26,14 +26,12 @@
 //Setters
 -(void) setTime: (NSString*) time
 {
-    NSNumber *t = [ self convertToDouble: time];
-    
     @try {
-        if( [t doubleValue] <= 0) {
+        if( [time doubleValue] <= 0) {
             [ NSException raise:@"InvalidTime" format:@"Time Cannot Be Zero or Negative!" ];
         }
         else
-            _T = [ t doubleValue];
+            _T = [ time doubleValue];
     }
     @catch (NSException *ex) {
         [ self ExceptionHandle: ex ];
@@ -41,33 +39,29 @@
     @finally {
         
     }
-   
-    
 }
--(void) setDisplacement: (NSString*) displacement
+
+-(void) setDisplacement: (NSNumber*) displacement
 {
-    NSNumber *d = [ self convertToDouble: displacement ];
-    _D = [ d doubleValue];
+    _D = [ displacement doubleValue];
+}
+
+-(void) setAcceleration: (NSNumber*) accel
+{
+    _A = [ accel doubleValue];
 
 }
--(void) setAcceleration: (NSString*) accel
-{
-    NSNumber *a = [ self convertToDouble: accel ];
-    _A = [ a doubleValue];
 
-}
--(void) setInitVelocity: (NSString*) initVelocity
+-(void) setInitialVelocity: (NSNumber*) initVelocity
 {
-    NSNumber *vi = [ self convertToDouble: initVelocity ];
-    _Vi = [ vi doubleValue];
-
+    _Vi = [ initVelocity doubleValue];
 }
--(void) setFinVelocity: (NSString*) finVelocity
+
+-(void) setFinalVelocity: (NSNumber*) finVelocity
 {
-    NSNumber *vf = [ self convertToDouble: finVelocity ];
-    _Vf = [ vf doubleValue];
-
+    _Vf = [ finVelocity doubleValue];
 }
+
 -(void) setBlankValue:(NSString*)value
 {
     @try {
@@ -78,9 +72,9 @@
             _blankValue = 1;
         else if([_blankValueStr isEqualToString:@"acceleration"])
             _blankValue = 2;
-        else if([_blankValueStr isEqualToString:@"InitVelocity"])
+        else if([_blankValueStr isEqualToString:@"InitialVelocity"])
             _blankValue = 3;
-        else if([_blankValueStr isEqualToString:@"FinVelocity"])
+        else if([_blankValueStr isEqualToString:@"FinalVelocity"])
             _blankValue = 4;
         else
             [ NSException raise:@"Invalid Value Given" format:@"setBlankValue parameter is not valid." ];
@@ -110,12 +104,12 @@
     NSNumber *a = [ [ NSNumber alloc ] initWithDouble:_A ];
     return a;
 }
--(NSNumber*) getInitVelocity
+-(NSNumber*) getInitialVelocity
 {
     NSNumber *vi = [ [ NSNumber alloc ] initWithDouble:_Vi ];
     return vi;
 }
--(NSNumber*) getFinVelocity
+-(NSNumber*) getFinalVelocity
 {
     NSNumber *vf = [ [ NSNumber alloc ] initWithDouble:_Vf ];
     return vf;
@@ -131,30 +125,6 @@
     return _exceptionThrown;
 }
 
-
-//Convert To Double
--(NSNumber*) convertToDouble: (NSString*) str {
-    NSNumberFormatter *f = [ [ NSNumberFormatter alloc ] init ];
-    f.numberStyle = NSNumberFormatterDecimalStyle;
-    NSNumber *num = [ f numberFromString: str ];
-    [ f release ];
-    
-    @try {
-        if(num != nil)
-            return num;
-        else
-         [ NSException raise:@"NotValidNum" format:@"A Value(s) Entered is Not a Valid Number" ];
-    }
-    @catch (NSException *ex) {
-        [ self ExceptionHandle:ex ];
-    }
-    @finally {
-        
-    }
-    
-}
-
-
 //Exception Handling
 -(void) ExceptionHandle:(NSException*) ex
 {
@@ -167,6 +137,21 @@
     @throw ex;
     //NSRunAlertPanel(@"Kinematic Solver For Mac",@"ERROR: %@", @"Close", nil, nil, [ex reason]);
     
+}
+
+//Convert To Double
++(NSNumber*) convertToDouble: (NSString*) str {
+    NSNumberFormatter *f = [ [ NSNumberFormatter alloc ] init ];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *num = [ f numberFromString: str ];
+    [ f release ];
+    
+    if(num == nil)
+    {
+        [ NSException raise:@"NotValidNum" format:@"A Value(s) Entered is Not a Valid Number" ];
+
+    }
+    return num;
 }
 
 @end

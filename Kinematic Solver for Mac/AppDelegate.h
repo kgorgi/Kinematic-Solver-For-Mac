@@ -23,4 +23,6 @@
 //Assign Button & Methods
 - (IBAction)calculateValue:(NSButton *)sender;
 - (IBAction)solvedForClicked:(id)sender;
+
+
 @end
