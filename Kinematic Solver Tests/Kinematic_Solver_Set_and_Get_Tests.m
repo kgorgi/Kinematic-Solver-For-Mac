@@ -9,7 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "KinematicSolver.h"
 
-@interface Kinematic_Solver_Set_and_Get_Tests : XCTestCase
+@interface Kinematic_Solver_Set_and_Get_Tests : XCTestCase {
+    @private
+        KinematicSolver *instance;
+    
+}
 - (void)testSetDisplacement;
 - (void)testSetTime;
 - (void)testSetAcceleration;
@@ -22,8 +26,8 @@
 @implementation Kinematic_Solver_Set_and_Get_Tests
 
 - (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+[super setUp];
+   instance = [[ KinematicSolver alloc] init];
 }
 
 - (void)tearDown {
@@ -33,7 +37,6 @@
 
 
 - (void)testSetDisplacement {
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:52.69];
     
     [instance setDisplacement:num];
@@ -43,7 +46,6 @@
 }
 
 - (void)testSetTime {
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:52.69];
     
     [instance setTime:num];
@@ -53,7 +55,6 @@
 }
 
 - (void)testSetAcceleration {
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:-52.75];
     
     [instance setAcceleration:num];
@@ -63,7 +64,6 @@
 }
 
 - (void)testSetInitalVelocity{
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:12.5];
     
     [instance setInitialVelocity:num];
@@ -73,7 +73,6 @@
 }
 
 - (void)testSetFinalVelocity {
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:100.5];
     
     [instance setFinalVelocity:num];
@@ -83,7 +82,6 @@
 }
 
 - (void)testSetBlankValue {
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:100.5];
     
     [instance setFinalVelocity:num];
@@ -93,7 +91,6 @@
 }
 
 - (void)testNegativeTime {
-    KinematicSolver *instance = [[ KinematicSolver alloc] init];
     NSNumber *num = [[NSNumber alloc] initWithDouble:-5.0];
     
     XCTAssertThrows([instance setTime:num], @"Failed to throw exception");
