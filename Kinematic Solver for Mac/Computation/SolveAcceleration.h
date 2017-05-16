@@ -9,7 +9,7 @@
 #ifndef SolveAcceleration_h
 #define SolveAcceleration_h
 
-#include "KinematicSolver.h"
+#import "KinematicSolver.h"
 
 @interface SolveAcceleration : KinematicSolver
 

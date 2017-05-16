@@ -9,7 +9,7 @@
 #ifndef SolveDisplacement_h
 #define SolveDisplacement_h
 
-#include "KinematicSolver.h"
+#import "KinematicSolver.h"
 
 @interface SolveDisplacement : KinematicSolver
 

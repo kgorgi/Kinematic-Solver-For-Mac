@@ -9,7 +9,7 @@
 #ifndef SolveTime_h
 #define SolveTime_h
 
-#include "KinematicSolver.h"
+#import "KinematicSolver.h"
 
 @interface SolveTime : KinematicSolver
 

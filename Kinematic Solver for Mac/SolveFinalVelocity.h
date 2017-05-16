@@ -9,7 +9,7 @@
 #ifndef SolveFinalVelocity_h
 #define SolveFinalVelocity_h
 
-#include "KinematicSolver.h"
+#import "KinematicSolver.h"
 
 @interface SolveFinalVelocity : KinematicSolver
 

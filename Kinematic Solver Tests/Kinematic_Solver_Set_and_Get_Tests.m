@@ -14,12 +14,6 @@
         KinematicSolver *instance;
     
 }
-- (void)testSetDisplacement;
-- (void)testSetTime;
-- (void)testSetAcceleration;
-- (void)testSetInitalVelocity;
-- (void)testSetFinalVelocity;
-- (void)testNegativeTime;
 
 @end
 
@@ -31,7 +25,6 @@
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
@@ -42,7 +35,6 @@
     [instance setDisplacement:num];
     
     XCTAssertTrue([[instance getDisplacement] doubleValue] == 52.69);
-    
 }
 
 - (void)testSetTime {
@@ -60,7 +52,6 @@
     [instance setAcceleration:num];
     
     XCTAssertTrue([[instance getAcceleration] doubleValue] == -52.75);
-    
 }
 
 - (void)testSetInitalVelocity{
@@ -78,16 +69,6 @@
     [instance setFinalVelocity:num];
     
     XCTAssertTrue([[instance getFinalVelocity] doubleValue] == 100.5);
-    
-}
-
-- (void)testSetBlankValue {
-    NSNumber *num = [[NSNumber alloc] initWithDouble:100.5];
-    
-    [instance setFinalVelocity:num];
-    
-    XCTAssertTrue([[instance getFinalVelocity] doubleValue] == 100.5);
-    
 }
 
 - (void)testNegativeTime {
@@ -96,5 +77,44 @@
     XCTAssertThrows([instance setTime:num], @"Failed to throw exception");
 }
 
+- (void)testSetBlankValueAccel {
+    [instance setBlankValue: @"acceleration"];
+    
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"acceleration"]);
+}
 
+
+- (void)testSetBlankValueDis {
+    [instance setBlankValue: @"displacement"];
+    
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"displacement"]);
+}
+
+
+- (void)testSetBlankValueTime{
+    [instance setBlankValue: @"time"];
+    
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"time"]);
+    
+}
+
+
+- (void)testSetBlankValueInitVelo{
+    [instance setBlankValue: @"initialVelocity"];
+    
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"initialVelocity"]);
+}
+
+
+- (void)testSetBlankValueFinVelo{
+    [instance setBlankValue: @"finalVelocity"];
+    
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"finalVelocity"]);
+}
+
+
+-(void)testSetBlankValueInvalid{
+    
+    XCTAssertThrows([instance setBlankValue: @"macintosh"], @"Failed to throw invalid argument exception!");
+}
 @end

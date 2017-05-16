@@ -22,13 +22,10 @@
         //Support Variables
         NSString* _blankValueStr;
         int _blankValue;
-        bool _exceptionThrown;
-    
-    
 }
 
-//Initialization - if adding a subclass that creates an init method, must add "_exceptionThrown = NO;" to that method
--(id) init; 
+//Initialization
+-(id) init;
 
 //Setters
 -(void) setTime: (NSNumber*) time;
@@ -45,7 +42,6 @@
 -(NSNumber*) getInitialVelocity;
 -(NSNumber*) getFinalVelocity;
 -(NSString*) getBlankValue;
--(bool) getExceptionThrown;
 
 //Calculator Specific Value, Convert Value to Double
 +(NSNumber*) convertToDouble: (NSString*) str;
