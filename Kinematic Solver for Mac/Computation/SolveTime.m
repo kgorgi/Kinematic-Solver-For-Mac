@@ -18,65 +18,102 @@
     return self;
 }
 
--(NSNumber*) calculateTime {
-    /*NSNumber* _answer;
+-(NSNumber*) calculateTime: (NSError**) error{
+    NSNumber* answer;
     double a, b, c;
     
-    @try {
-        switch(_blankValue)
-        {
-            case 0:
-                _answer = [[ NSNumber alloc ] initWithDouble:(_Vf - _Vi) / _A];
-                break;
-            case 2:
-                _answer = [[ NSNumber alloc ] initWithDouble:(2 * _D) / (_Vi + _Vf)];
-                printf("%f %f %f", _D, _Vi, _Vf);
-                break;
-            case 3:
-                if(_A == 0)
-                {
-                    _answer = [[ NSNumber alloc ] initWithDouble: fabs(_D / _Vf) ];
+    switch(_blankValue)
+    {
+        case 0:
+            if(_A == 0){
+                *error = [ KinematicSolver createError: @"Divide By Zero Error: Acceleration Cannot be Set to Zero!"
+                                                Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                                  Code: 4 ];
+                return nil;
+            }
+
+            answer = [[ NSNumber alloc ] initWithDouble:(_Vf - _Vi) / _A];
+            break;
+        case 2:
+            if(_Vi + _Vf == 0){
+                *error = [ KinematicSolver createError: @"Divide By Zero Error: Initial Velocity + Final Velocity Cannot Equal Zero!"
+                                                Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                                  Code: 4 ];
+                return nil;
+            }
+
+            answer = [[ NSNumber alloc ] initWithDouble:(2 * _D) / (_Vi + _Vf)];
+            break;
+        case 3:
+            if(_A == 0) {
+                if(_Vf == 0){
+                    *error = [ KinematicSolver createError: @"Divide By Zero Error: Final Velocity Cannot be Set to Zero!"
+                                                    Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                                      Code: 4 ];
+                 return nil;
                 }
-                else
-                {
-                    //Convert Values into Quadratic Function Variables and Calculate Answer
-                    a = (0.5 * _A);
-                    b = ( -1 * _Vf);
-                    c = _D;
-                    
-                    _answer = [[ NSNumber alloc ] initWithDouble: [ self quadEquation:a andb:b withc:c] ];
+
+                answer = [[ NSNumber alloc ] initWithDouble: fabs(_D / _Vf) ];
+            }
+            else {
+                //Convert Values into Quadratic Function Variables and Calculate Answer
+                a = (0.5 * _A);
+                b = ( -1 * _Vf);
+                c = _D;
+                
+                answer = [[ NSNumber alloc ] initWithDouble: [SolveTime quadEquation: error A:a andb:b withc:c] ];
+                
+                //Check if Error Has Occured
+                if([ answer doubleValue ] == -1){
+                    return nil;
                 }
-                break;
-            case 4:
-                if(_A == 0)
-                {
-                    _answer = [[ NSNumber alloc ] initWithDouble: fabs(_D / _Vi) ];
+            }
+            break;
+        case 4:
+            if(_A == 0) {
+                if(_Vi == 0){
+                    *error = [ KinematicSolver createError: @"Divide By Zero Error: Initial Velocity Cannot be Set to Zero!"
+                                                    Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                                      Code: 4 ];
+                    return nil;
                 }
-                else
-                {
-                    
-                    //Convert Values into Quadratic Function Variables and Calculate Answer
-                    a = (0.5 * _A);
-                    b = _Vi;
-                    c = (-1 * _D);
-                    
-                    _answer = [[ NSNumber alloc ] initWithDouble: [self quadEquation:a andb:b withc:c]];
+
+                answer = [[ NSNumber alloc ] initWithDouble: fabs(_D / _Vi) ];
+            }
+            else{
+                
+                //Convert Values into Quadratic Function Variables and Calculate Answer
+                a = (0.5 * _A);
+                b = _Vi;
+                c = (-1 * _D);
+                
+                answer = [[ NSNumber alloc ] initWithDouble: [SolveTime quadEquation: error A:a andb:b withc:c]];
+                
+                //Check if Error Has Occured
+                if([ answer doubleValue ] == -1){
+                    return nil;
                 }
-                break;
-            default:
-                [ NSException raise:@"NoBlankValue" format:@"No Blank Value Has Been Selected" ];
-                return NULL;
-        }
-        _T =  [ _answer doubleValue ];
-        return _answer;
+            }
+            break;
+        default:
+            *error = [ KinematicSolver createError: @"No Blank Value Has Been Selected!"
+                                            Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                              Code: 5 ];
+            return nil;
+            break;
     }
-    @catch (NSException *ex) {
-        //[ self ExceptionHandle:ex ];
+    
+    //Invalid Computed Time Check
+    if([ answer doubleValue ] <= 0){
+        *error = [ KinematicSolver createError: @"Invalid Physics Scenario: Computed Time is Less Than or Equal to Zero!"
+                                        Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                          Code: 8 ];
+        return nil;
+
     }
-    @finally {
-        
-    }*/
-    return nil;
+    
+    _T =  [ answer doubleValue ];
+    return answer;
 }
     
 +(double) quadEquation: (NSError**) error A:(double) a andb: (double) b withc:(double) c {

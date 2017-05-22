@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D0300431ED35A660029D965 /* Solve_Time_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0300421ED35A660029D965 /* Solve_Time_Tests.m */; };
 		8D67712419F4175F00654B74 /* KinematicSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D67712319F4175F00654B74 /* KinematicSolver.m */; };
 		8D8BD1D41ED3538300375580 /* Quadratic_Equation_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8BD1D31ED3538300375580 /* Quadratic_Equation_Tests.m */; };
 		8DA3DB7F1ED2C21400EF2478 /* Solve_Acceleration_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA3DB7E1ED2C21400EF2478 /* Solve_Acceleration_Tests.m */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D0300421ED35A660029D965 /* Solve_Time_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solve_Time_Tests.m; sourceTree = "<group>"; };
 		8D67712219F4175F00654B74 /* KinematicSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KinematicSolver.h; sourceTree = "<group>"; };
 		8D67712319F4175F00654B74 /* KinematicSolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KinematicSolver.m; sourceTree = "<group>"; };
 		8D8BD1D31ED3538300375580 /* Quadratic_Equation_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quadratic_Equation_Tests.m; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		8DAA249F1EC8D9BB001185B2 /* Kinematic Solver Tests */ = {
 			isa = PBXGroup;
 			children = (
+				8D0300421ED35A660029D965 /* Solve_Time_Tests.m */,
 				8D8BD1D31ED3538300375580 /* Quadratic_Equation_Tests.m */,
 				8DBB0D601ED3511200AB0F8D /* Solve_FinalVelocity_Tests.m */,
 				8DBB0D5E1ED349C400AB0F8D /* Solve_InitialVelocity_Tests.m */,
@@ -303,6 +306,7 @@
 			files = (
 				8DAA24A11EC8D9BB001185B2 /* Kinematic_Solver_Set_and_Get_Tests.m in Sources */,
 				8DA3DB7F1ED2C21400EF2478 /* Solve_Acceleration_Tests.m in Sources */,
+				8D0300431ED35A660029D965 /* Solve_Time_Tests.m in Sources */,
 				8DAA24A91EC97540001185B2 /* convertToDouble_Tests.m in Sources */,
 				8D8BD1D41ED3538300375580 /* Quadratic_Equation_Tests.m in Sources */,
 				8DBB0D611ED3511200AB0F8D /* Solve_FinalVelocity_Tests.m in Sources */,

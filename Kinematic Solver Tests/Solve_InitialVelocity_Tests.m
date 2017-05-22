@@ -106,10 +106,10 @@
     XCTAssertEqual(ans, [[compute calculateInitialVelocity:nil] doubleValue]);
     
     
-    //Special Case: t = 0;
+    //Special Case: Time
     NSError* error;
     
-    [ compute setBlankValue:@"Time" andError:&error ];
+    [ compute setBlankValue:@"Time" andError:nil ];
     
     NSNumber* computeAns = [ compute calculateInitialVelocity: &error];
     
