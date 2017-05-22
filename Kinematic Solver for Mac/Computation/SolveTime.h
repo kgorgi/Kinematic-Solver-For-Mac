@@ -15,7 +15,7 @@
 
 -(NSNumber*) calculateTime;
 
--(double) quadEquation:(double) a andb: (double) b withc:(double) c;
++(double) quadEquation: (NSError**) error A:(double) a andb: (double) b withc:(double) c;
 
 @end
 

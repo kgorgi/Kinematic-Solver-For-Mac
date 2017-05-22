@@ -21,7 +21,7 @@
         case 1:
             temp = (_Vi * _Vi) + (2 * _A * _D);
             if( temp < 0){
-                *error = [ KinematicSolver createError: @"The Values Entered Produce a Physics Scenario That is Not Possible"
+                *error = [ KinematicSolver createError: @"The Values Entered Produce a Physics Scenario That is Not Possible!"
                                                 Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                   Code: 6 ];
                 return nil;
@@ -33,7 +33,7 @@
             NSString *domain = @"com.Gorgichuk.KinematicSolver.ErrorDomain";
             
             NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-            [userInfo setObject:@"Sqaure Root has Two Possible Answers!" forKey:NSLocalizedDescriptionKey];
+            [userInfo setObject:@"Square Root has Two Possible Answers!" forKey:NSLocalizedDescriptionKey];
             [userInfo setObject: [[NSNumber alloc] initWithDouble:temp ] forKey: @"FirstValue"];
             [userInfo setObject: [[NSNumber alloc] initWithDouble:(temp * -1) ] forKey: @"SecondValue"];
             

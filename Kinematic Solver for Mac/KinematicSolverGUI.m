@@ -138,7 +138,24 @@
         }
         default: return ans;
     }
-    
+ 
+ QUADRATIC EQUATION
+ 
+ NSLog(@"ERROR: Quadratic Equation has Two Valid Roots!");
+ NSInteger alert = NSRunAlertPanel(@"Kinematic Solver For Mac", @"Quadratic Equation has Two Valid Roots! Please Select the Correct Root: Root 1 = %f  Root 2 = %f",  @"Root 1", @"Root 2", nil, root1, root2);
+ switch(alert) {
+ case NSAlertDefaultReturn:
+ {
+ return root1;
+ break;
+ }
+ case NSAlertAlternateReturn:
+ {
+ return root2;
+ break;
+ }
+ default: break;
+ 
 } */
 
 

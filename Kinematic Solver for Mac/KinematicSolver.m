@@ -114,7 +114,8 @@
  * 4 = DivideByZero Error
  * 5 = No BlankValue Selected
  * 6 = Invalid Physics Scenario
- * 7 = Two Possible Values
+ * 7 = Two Possible Values - Square Root
+ * 8 = Two Possible Values - Quadratic Equation
  */
 +(NSError*) createError: (NSString*) msg Domain: (NSString*) dom Code:(int) c {
     // Create the error.
