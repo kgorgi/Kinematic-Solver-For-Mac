@@ -13,6 +13,7 @@
 
 @interface SolveTime : KinematicSolver
 
+-(id) init;
 -(NSNumber*) calculateTime;
 
 +(double) quadEquation: (NSError**) error A:(double) a andb: (double) b withc:(double) c;

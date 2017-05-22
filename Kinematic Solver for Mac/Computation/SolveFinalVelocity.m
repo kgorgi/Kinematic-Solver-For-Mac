@@ -10,6 +10,14 @@
 
 @implementation SolveFinalVelocity
 
+//Initialization
+-(id) init {
+    if(!(self = [ super init ]) )
+        return nil;
+    
+    return self;
+}
+
 -(NSNumber*) calculateFinalVelocity: (NSError**) error {
     NSNumber* _answer;
     double temp;

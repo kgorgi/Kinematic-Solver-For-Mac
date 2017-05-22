@@ -11,8 +11,7 @@
 @implementation SolveDisplacement
 
 //Initialization
--(id) init
-{
+-(id) init {
     if(!(self = [ super init ]) )
         return nil;
     

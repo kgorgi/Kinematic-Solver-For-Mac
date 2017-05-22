@@ -10,6 +10,14 @@
 
 @implementation SolveInitialVelocity
 
+//Initialization
+-(id) init {
+    if(!(self = [ super init ]) )
+        return nil;
+    
+    return self;
+}
+
 -(NSNumber*) calculateInitialVelocity: (NSError**) error {
     NSNumber* answer;
     double temp;

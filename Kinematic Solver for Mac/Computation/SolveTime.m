@@ -10,8 +10,15 @@
 
 @implementation SolveTime
 
--(NSNumber*) calculateTime
-{
+//Initialization
+-(id) init {
+    if(!(self = [ super init ]) )
+        return nil;
+    
+    return self;
+}
+
+-(NSNumber*) calculateTime {
     /*NSNumber* _answer;
     double a, b, c;
     
@@ -105,7 +112,7 @@
     }
 
     //Root 1 is Negative, Root 2 is Positive
-    return root2;
+    return root2;q
 }
 
 @end

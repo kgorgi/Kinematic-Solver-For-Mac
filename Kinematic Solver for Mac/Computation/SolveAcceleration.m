@@ -11,7 +11,6 @@
 @implementation SolveAcceleration
 
 //Initialization
-
 -(id) init {
     if(!(self = [ super init ]) )
         return nil;
