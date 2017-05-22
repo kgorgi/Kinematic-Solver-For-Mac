@@ -43,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		8D0300421ED35A660029D965 /* Solve_Time_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solve_Time_Tests.m; sourceTree = "<group>"; };
+		8D0D45511ED3976D00B759C8 /* Kinematic Solver Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kinematic Solver Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D67712219F4175F00654B74 /* KinematicSolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KinematicSolver.h; sourceTree = "<group>"; };
 		8D67712319F4175F00654B74 /* KinematicSolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KinematicSolver.m; sourceTree = "<group>"; };
 		8D8BD1D31ED3538300375580 /* Quadratic_Equation_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quadratic_Equation_Tests.m; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		8DAA24A21EC8D9BB001185B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DAA24A81EC97540001185B2 /* convertToDouble_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = convertToDouble_Tests.m; sourceTree = "<group>"; };
 		8DBB0D5C1ED2CE8E00AB0F8D /* Kinematic Solver for Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kinematic Solver for Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DBB0D5D1ED2CE8E00AB0F8D /* Kinematic Solver Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Kinematic Solver Tests.xctest"; path = "/Users/Kian/GitHub Projects/Kinematic Solver for Mac/build/Debug/Kinematic Solver Tests.xctest"; sourceTree = "<absolute>"; };
 		8DBB0D5E1ED349C400AB0F8D /* Solve_InitialVelocity_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solve_InitialVelocity_Tests.m; sourceTree = "<group>"; };
 		8DBB0D601ED3511200AB0F8D /* Solve_FinalVelocity_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solve_FinalVelocity_Tests.m; sourceTree = "<group>"; };
 		8DC4EFF919F486DA00C3C54E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Kinematic Solver for Mac/en.lproj/MainMenu.xib"; sourceTree = "<group>"; };
@@ -141,6 +141,7 @@
 				8DAA249F1EC8D9BB001185B2 /* Kinematic Solver Tests */,
 				8DF971481946B08D007FA4AC /* Frameworks */,
 				8DBB0D5C1ED2CE8E00AB0F8D /* Kinematic Solver for Mac.app */,
+				8D0D45511ED3976D00B759C8 /* Kinematic Solver Tests.xctest */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -213,7 +214,7 @@
 			);
 			name = "Kinematic Solver Tests";
 			productName = "Kinematic Solver Tests";
-			productReference = 8DBB0D5D1ED2CE8E00AB0F8D /* Kinematic Solver Tests.xctest */;
+			productReference = 8D0D45511ED3976D00B759C8 /* Kinematic Solver Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8DF971451946B08D007FA4AC /* Kinematic Solver for Mac */ = {
