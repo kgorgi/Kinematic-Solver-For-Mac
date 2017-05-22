@@ -87,7 +87,7 @@
 -(void)testDivideByZeroVelo{
     NSError* error;
     
-    [ self setValues:-1 Accel:0 InitVelo:5 FinVelo: -5 Answer:-1 ];
+    [ self setValues:-1 Accel:2 InitVelo:5 FinVelo: -5 Answer:-1 ];
     [ compute setBlankValue:@"Acceleration" andError:nil ];
     
     NSNumber* answer = [ compute calculateTime: &error];
@@ -144,7 +144,7 @@
     NSNumber* answer = [ compute calculateTime: &error];
 
     if(answer == nil && error != nil){
-        if([error code] == 8 && [[error domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+        if([error code] == 6 && [[error domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
             return;
         }
     }

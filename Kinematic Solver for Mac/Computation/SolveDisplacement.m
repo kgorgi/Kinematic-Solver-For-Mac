@@ -18,13 +18,14 @@
     return self;
 }
 
+//Method returns nil if error occures.
 -(NSNumber*) calculateDisplacement: (NSError**) error {
     NSNumber* answer;
     
     switch(_blankValue){
         case 1:
             if(_A == 0){
-                *error = [ KinematicSolver createError: @"Divide By Zero Error: Acceleration Cannot be Set to Zero!"
+                *error = [ KinematicSolver createError: @"Divide By Zero\nAcceleration Cannot be Set to Zero!"
                                                 Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                   Code: 4 ];
                 return nil;

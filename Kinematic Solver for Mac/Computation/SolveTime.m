@@ -18,6 +18,7 @@
     return self;
 }
 
+//Method returns nil if error occures.
 -(NSNumber*) calculateTime: (NSError**) error{
     NSNumber* answer;
     double a, b, c;
@@ -26,7 +27,7 @@
     {
         case 0:
             if(_A == 0){
-                *error = [ KinematicSolver createError: @"Divide By Zero Error: Acceleration Cannot be Set to Zero!"
+                *error = [ KinematicSolver createError: @"Divide By Zero\nAcceleration Cannot be Set to Zero!"
                                                 Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                   Code: 4 ];
                 return nil;
@@ -36,7 +37,7 @@
             break;
         case 2:
             if(_Vi + _Vf == 0){
-                *error = [ KinematicSolver createError: @"Divide By Zero Error: Initial Velocity + Final Velocity Cannot Equal Zero!"
+                *error = [ KinematicSolver createError: @"Divide By Zero\nInitial Velocity + Final Velocity Cannot Equal Zero!"
                                                 Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                   Code: 4 ];
                 return nil;
@@ -47,7 +48,7 @@
         case 3:
             if(_A == 0) {
                 if(_Vf == 0){
-                    *error = [ KinematicSolver createError: @"Divide By Zero Error: Final Velocity Cannot be Set to Zero!"
+                    *error = [ KinematicSolver createError: @"Divide By Zero\nFinal Velocity Cannot be Set to Zero!"
                                                     Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                       Code: 4 ];
                  return nil;
@@ -72,7 +73,7 @@
         case 4:
             if(_A == 0) {
                 if(_Vi == 0){
-                    *error = [ KinematicSolver createError: @"Divide By Zero Error: Initial Velocity Cannot be Set to Zero!"
+                    *error = [ KinematicSolver createError: @"Divide By Zero\nInitial Velocity Cannot be Set to Zero!"
                                                     Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                       Code: 4 ];
                     return nil;
@@ -105,9 +106,9 @@
     
     //Invalid Computed Time Check
     if([ answer doubleValue ] <= 0){
-        *error = [ KinematicSolver createError: @"Invalid Physics Scenario: Computed Time is Less Than or Equal to Zero!"
+        *error = [ KinematicSolver createError: @"Invalid Physics Scenario\nComputed Time is Less Than or Equal to Zero!"
                                         Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
-                                          Code: 8 ];
+                                          Code: 6 ];
         return nil;
 
     }
@@ -115,7 +116,8 @@
     _T =  [ answer doubleValue ];
     return answer;
 }
-    
+
+//Method returns -1 if error occures.
 +(double) quadEquation: (NSError**) error A:(double) a andb: (double) b withc:(double) c {
     //Calculate Roots
     double root1 = ( (-1 * b) + sqrt( (b * b) - (4 * a * c))) / (2 * a);

@@ -18,6 +18,7 @@
     return self;
 }
 
+//Method returns nil if error occures.
 -(NSNumber*) calculateInitialVelocity: (NSError**) error {
     NSNumber* answer;
     double temp;
@@ -29,7 +30,7 @@
         case 1:
             temp = (_Vf * _Vf) - (2 * _A * _D);
             if( temp < 0){
-                *error = [ KinematicSolver createError: @"The Values Entered Produce a Physics Scenario That is Not Possible!"
+                *error = [ KinematicSolver createError: @"Negative Square Root\nThe Values Entered Produce an Impossible Physics Scenario!"
                                                 Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                                   Code: 6 ];
                 return nil;

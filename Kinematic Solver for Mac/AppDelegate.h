@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import"KinematicSolver.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
@@ -23,6 +24,14 @@
 //Assign Button & Methods
 - (IBAction)calculateValue:(NSButton *)sender;
 - (IBAction)solvedForClicked:(id)sender;
+- (IBAction)clearAllClicked:(id)sender;
 
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
+//Helper Methods
+-(KinematicSolver*) initializeKinematicSolver;
+-(NSNumber*) calculateAnswer:(KinematicSolver*) kSolve;
 
+//Error Handling
+-(void)displayError:(NSError*) error;
+-(void)displayErrorWithMessage:(NSString*) msg;
 @end

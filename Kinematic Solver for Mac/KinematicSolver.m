@@ -23,18 +23,20 @@
 }
 
 //Setters
+
+//Method returns NO if error occures.
 -(bool) setTime: (NSNumber*) time andError: (NSError**) error{
     if( [time doubleValue] <= 0) {
-       *error = [ KinematicSolver createError: @"Time Cannot be Set to Zero!"
+       *error = [ KinematicSolver createError: @"Time Cannot be Set Less Than or Equal to Zero!"
                          Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                          Code: 1 ];
     } else {
         _T = [ time doubleValue];
-        return true;
+        return YES;
         
     }
     
-    return false;
+    return NO;
 }
 
 -(void) setDisplacement: (NSNumber*) displacement {
@@ -54,6 +56,7 @@
     _Vf = [ finVelocity doubleValue];
 }
 
+//Method returns NO if error occures.
 -(bool) setBlankValue:(NSString*)value andError: (NSError**) error {
     _blankValueStr = [ [NSString alloc ] initWithString:value ];
     if([_blankValueStr isEqualToString:@"Displacement"]){
@@ -70,10 +73,10 @@
         *error = [ KinematicSolver createError: @"setBlankValue parameter is not valid!"
                                         Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                           Code: 2 ];
-        return false;
+        return NO;
     }
     
-    return true;
+    return YES;
 }
 
 -(void) setBlankValueTesting: (int) value{
@@ -132,10 +135,9 @@
 }
 
 
-//NSRunAlertPanel(@"Kinematic Solver For Mac",@"ERROR: %@", @"Close", nil, nil, [ex reason]);
-
 
 //Convert To Double
+//Method returns nil if error occures.
 +(NSNumber*) convertToDouble: (NSString*) str andError: (NSError**) error{
     NSNumberFormatter *f = [ [ NSNumberFormatter alloc ] init ];
     f.numberStyle = NSNumberFormatterDecimalStyle;

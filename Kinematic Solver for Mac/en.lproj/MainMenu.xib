@@ -135,11 +135,12 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="119" y="-143"/>
         </menu>
         <window title="Kinematic Solver for Mac" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="371">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <rect key="contentRect" x="0.0" y="0.0" width="484" height="426"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="777"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" autoresizesSubviews="NO" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="484" height="426"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -365,6 +366,17 @@ DQ
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Uw-3d-bmV">
+                        <rect key="frame" x="13" y="9" width="91" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Clear All" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ua0-Qk-u6e">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="12" name="HelveticaNeue"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clearAllClicked:" target="494" id="foA-Xl-h7T"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="664" firstAttribute="leading" secondItem="656" secondAttribute="leading" id="765"/>
@@ -429,14 +441,6 @@ DQ
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
-        <button verticalHuggingPriority="750" id="832">
-            <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="833">
-                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                <font key="font" metaFont="system"/>
-            </buttonCell>
-        </button>
         <userDefaultsController representsSharedInstance="YES" id="1211"/>
     </objects>
     <resources>
