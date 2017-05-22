@@ -13,7 +13,7 @@
 
 @interface SolveFinalVelocity : KinematicSolver
 
--(NSNumber*) calculateFinalVelocity;
+-(NSNumber*) calculateFinalVelocity: (NSError**) error ;
 
 @end
 

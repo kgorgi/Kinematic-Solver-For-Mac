@@ -22,8 +22,7 @@
 -(NSNumber*) calculateDisplacement: (NSError**) error {
     NSNumber* answer;
     
-    switch(_blankValue)
-    {
+    switch(_blankValue){
         case 1:
             if(_A == 0){
                 *error = [ KinematicSolver createError: @"Divide By Zero Error: Acceleration Set to Zero!"

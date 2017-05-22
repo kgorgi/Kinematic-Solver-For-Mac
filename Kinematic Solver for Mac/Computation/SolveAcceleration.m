@@ -22,8 +22,7 @@
 -(NSNumber*) calculateAcceleration: (NSError**) error{
     NSNumber* answer;
     
-    switch(_blankValue)
-    {
+    switch(_blankValue) {
         case 0:
             answer = [[ NSNumber alloc ] initWithDouble:(_Vf - _Vi) / _T];
             break;

@@ -14,8 +14,7 @@
     NSNumber* answer;
     double temp;
     
-    switch(_blankValue)
-    {
+    switch(_blankValue) {
         case 0:
             answer = [[ NSNumber alloc ] initWithDouble:_Vf - (_A * _T)];
             break;
