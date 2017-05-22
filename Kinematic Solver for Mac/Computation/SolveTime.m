@@ -112,7 +112,7 @@
     }
 
     //Root 1 is Negative, Root 2 is Positive
-    return root2;q
+    return root2;
 }
 
 @end
