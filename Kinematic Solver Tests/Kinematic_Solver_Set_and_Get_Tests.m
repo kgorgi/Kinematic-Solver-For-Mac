@@ -79,7 +79,9 @@
     bool success = [instance setTime:num andError: &err];
     
     if(!success && err != nil){
-        return;
+        if([err code] == 1 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();
@@ -127,7 +129,9 @@
     bool success = [instance setBlankValue: @"macintosh" andError: &err];
     
     if(!success && err != nil){
-        return;
+        if([err code] == 2 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();

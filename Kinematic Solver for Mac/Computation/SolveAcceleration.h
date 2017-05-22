@@ -13,7 +13,8 @@
 
 @interface SolveAcceleration : KinematicSolver
 
--(NSNumber*) calculateAcceleration;
+-(id) init;
+-(NSNumber*) calculateAcceleration: (NSError**) error;
 
 @end
 

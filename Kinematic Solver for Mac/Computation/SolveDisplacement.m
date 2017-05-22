@@ -46,7 +46,7 @@
             *error = [ KinematicSolver createError: @"No Blank Value Has Been Selected!"
                                             Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
                                               Code: 5 ];
-            return NULL;
+            return nil;
             break;
             
     }

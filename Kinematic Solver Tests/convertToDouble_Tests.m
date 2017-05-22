@@ -74,7 +74,9 @@
     NSNumber* result = [KinematicSolver convertToDouble: @"macintosh" andError: &err];
     
     if(result == nil && err != nil){
-        return;
+        if([err code] == 3 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();
@@ -86,7 +88,9 @@
     NSNumber* result = [KinematicSolver convertToDouble: @"100 00" andError: &err];
     
     if(result == nil && err != nil){
-        return;
+        if([err code] == 3 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();
@@ -98,7 +102,9 @@
     NSNumber* result = [KinematicSolver convertToDouble: @"-5-52" andError: &err];
     
     if(result == nil && err != nil){
-        return;
+        if([err code] == 3 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();
@@ -110,7 +116,9 @@
     NSNumber* result = [KinematicSolver convertToDouble: @"-5e-52-3" andError: &err];
     
     if(result == nil && err != nil){
-        return;
+        if([err code] == 3 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();
@@ -122,7 +130,9 @@
     NSNumber* result = [KinematicSolver convertToDouble: @"5.2e5.2" andError: &err];
     
     if(result == nil && err != nil){
-        return;
+        if([err code] == 3 && [[err domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
+            return;
+        }
     }
     
     XCTFail();

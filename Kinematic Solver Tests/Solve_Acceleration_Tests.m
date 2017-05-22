@@ -7,23 +7,23 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SolveDisplacement.h"
+#import "SolveAcceleration.h"
 
-@interface Solve_Displacement_Tests : XCTestCase{
+@interface Solve_Acceleration_Tests : XCTestCase{
     @private
-        SolveDisplacement* compute;
+        SolveAcceleration* compute;
         double ans;
 }
 
--(void) setValues: (double) t Accel: (double) A InitVelo: (double) Vi FinVelo: (double) Vf Answer: (double) answer;
+-(void) setValues: (double) D Time: (double) T InitVelo: (double) Vi FinVelo: (double) Vf Answer: (double) answer;
 
 @end
 
-@implementation Solve_Displacement_Tests
+@implementation Solve_Acceleration_Tests
 
 - (void)setUp {
     [super setUp];
-    compute = [[SolveDisplacement alloc] init];
+    compute = [[SolveAcceleration alloc] init];
 
 }
 
@@ -33,27 +33,27 @@
 }
 
 - (void)testBasic{
-    [ self setValues:5 Accel:15 InitVelo:30 FinVelo:105 Answer:337.5 ];
+    [ self setValues:337.5 Time:5 InitVelo:30 FinVelo:105 Answer:15 ];
     [self computationTests];
 }
 
 - (void)testDecimal{
-    [ self setValues:5.5 Accel:2 InitVelo:3 FinVelo:14 Answer:46.75 ];
+    [ self setValues:46.75 Time:5.5 InitVelo:3 FinVelo:14 Answer:2 ];
     [ self computationTests ];
 }
 
 - (void)testNegative{
-    [ self setValues:5 Accel:-6 InitVelo:-4 FinVelo: -34 Answer:-95 ];
+    [ self setValues:-95 Time:5 InitVelo:-4 FinVelo: -34 Answer:-6];
     [ self computationTests ];
 }
 
 -(void)testDivideByZero{
     NSError* error;
     
-    [ self setValues:1 Accel:0 InitVelo:5 FinVelo: 5 Answer:-1 ];
+    [ self setValues:0 Time:1 InitVelo:5 FinVelo: 5 Answer:-1 ];
     [ compute setBlankValue:@"time" andError:nil ];
     
-    NSNumber* answer = [ compute calculateDisplacement: &error];
+    NSNumber* answer = [ compute calculateAcceleration: &error];
     
     if(answer == nil && error != nil){
         if([error code] == 4 && [[error domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
@@ -67,11 +67,11 @@
 -(void)testNoBlankValueSet{
     NSError* error;
     
-    compute = [[SolveDisplacement alloc] init];
+    compute = [[SolveAcceleration alloc] init];
     
-    [ self setValues:1 Accel:0 InitVelo:5 FinVelo: 5 Answer:-1 ];
+    [ self setValues:0 Time:4 InitVelo:5 FinVelo: 5 Answer:-1 ];
     
-    NSNumber* answer = [ compute calculateDisplacement: &error];
+    NSNumber* answer = [ compute calculateAcceleration: &error];
     
     if(answer == nil && error != nil){
         if([error code] == 5 && [[error domain] isEqualToString:@"com.Gorgichuk.KinematicSolver.ErrorDomain"]){
@@ -83,26 +83,26 @@
 }
 
 
--(void) setValues: (double) T Accel: (double) A InitVelo: (double) Vi FinVelo: (double) Vf Answer: (double) answer{
+-(void) setValues: (double) D Time: (double) T InitVelo: (double) Vi FinVelo: (double) Vf Answer: (double) answer{
     ans = answer;
+    [ compute setDisplacement: [[NSNumber alloc] initWithDouble: D] ];
     [ compute setTime:[[NSNumber alloc] initWithDouble:T] andError:nil ];
-    [ compute setAcceleration: [[NSNumber alloc] initWithDouble: A] ];
     [ compute setInitialVelocity: [[NSNumber alloc] initWithDouble: Vi] ];
     [ compute setFinalVelocity: [[NSNumber alloc] initWithDouble: Vf] ];
 }
 
 -(void)computationTests{
+    [ compute setBlankValue:@"displacement" andError:nil ];
+    XCTAssertEqual(ans, [[compute calculateAcceleration:nil] doubleValue]);
+    
     [ compute setBlankValue:@"time" andError:nil ];
-    XCTAssertEqual(ans, [[compute calculateDisplacement:nil] doubleValue]);
-
-    [ compute setBlankValue:@"acceleration" andError:nil ];
-    XCTAssertEqual(ans, [[compute calculateDisplacement:nil] doubleValue]);
+    XCTAssertEqual(ans, [[compute calculateAcceleration:nil] doubleValue]);
 
     [ compute setBlankValue:@"InitialVelocity" andError:nil ];
-    XCTAssertEqual(ans, [[compute calculateDisplacement:nil] doubleValue]);
+    XCTAssertEqual(ans, [[compute calculateAcceleration:nil] doubleValue]);
 
     [ compute setBlankValue:@"FinalVelocity" andError:nil ];
-    XCTAssertEqual(ans, [[compute calculateDisplacement:nil] doubleValue]);
+    XCTAssertEqual(ans, [[compute calculateAcceleration:nil] doubleValue]);
 }
 
 @end

@@ -12,6 +12,8 @@
 
 //Initialization
 -(id) init {
+    //Set Blank Value to Non-Valid Number
+    _blankValue = -1;
     if(!(self = [ super init ]) )
         return nil;
     
@@ -106,7 +108,7 @@
 
 /* Error Codes:
  * 1 = Time Set t<= 0
- * 2 = setValueParameter Invalid
+ * 2 = setBlankValueParameter Invalid
  * 3 = convertToDouble Error
  * 4 = DivideByZero Error
  * 5 = No BlankValue Selected
