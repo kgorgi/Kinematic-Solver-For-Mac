@@ -13,7 +13,7 @@
 
 @interface SolveInitialVelocity : KinematicSolver
 
--(NSNumber*) calculateInitialVelocity;
+-(NSNumber*) calculateInitialVelocity: (NSError**) error;
 
 @end
 

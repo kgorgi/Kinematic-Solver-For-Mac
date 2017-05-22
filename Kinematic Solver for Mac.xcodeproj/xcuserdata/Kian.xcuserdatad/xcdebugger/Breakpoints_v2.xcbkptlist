@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Kinematic Solver for Mac/Computation/SolveAcceleration.m"
-            timestampString = "517130158.887196"
+            timestampString = "517164182.899615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "-calculateAcceleration:"
             landmarkType = "7">
          </BreakpointContent>

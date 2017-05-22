@@ -49,6 +49,7 @@
             return nil;
             break;
     }
+    _A = [ answer doubleValue ];
     return answer;
 }
 

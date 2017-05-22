@@ -87,23 +87,23 @@
     XCTFail();
 }
 - (void)testSetBlankValueAccel {
-    [instance setBlankValue: @"acceleration" andError: nil];
+    [instance setBlankValue: @"Acceleration" andError: nil];
     
-    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"acceleration"]);
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"Acceleration"]);
 }
 
 
 - (void)testSetBlankValueDis {
-    [instance setBlankValue: @"displacement" andError: nil];
+    [instance setBlankValue: @"Displacement" andError: nil];
     
-    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"displacement"]);
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"Displacement"]);
 }
 
 
 - (void)testSetBlankValueTime{
-    [instance setBlankValue: @"time" andError: nil];
+    [instance setBlankValue: @"Time" andError: nil];
     
-    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"time"]);
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"Time"]);
     
 }
 

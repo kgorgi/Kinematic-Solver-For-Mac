@@ -14,6 +14,7 @@
 -(id) init {
     //Set Blank Value to Non-Valid Number
     _blankValue = -1;
+    
     if(!(self = [ super init ]) )
         return nil;
     
@@ -55,11 +56,11 @@
 
 -(bool) setBlankValue:(NSString*)value andError: (NSError**) error {
     _blankValueStr = [ [NSString alloc ] initWithString:value ];
-    if([_blankValueStr isEqualToString:@"displacement"]){
+    if([_blankValueStr isEqualToString:@"Displacement"]){
         _blankValue = 0;
-    } else if([_blankValueStr isEqualToString:@"time"]){
+    } else if([_blankValueStr isEqualToString:@"Time"]){
         _blankValue = 1;
-    }else if([_blankValueStr isEqualToString:@"acceleration"]){
+    }else if([_blankValueStr isEqualToString:@"Acceleration"]){
         _blankValue = 2;
     } else if([_blankValueStr isEqualToString:@"InitialVelocity"]){
         _blankValue = 3;
@@ -112,14 +113,15 @@
  * 3 = convertToDouble Error
  * 4 = DivideByZero Error
  * 5 = No BlankValue Selected
+ * 6 = Invalid Physics Scenario
+ * 7 = Two Possible Values
  */
 +(NSError*) createError: (NSString*) msg Domain: (NSString*) dom Code:(int) c {
     // Create the error.
     NSString *domain = @"com.Gorgichuk.KinematicSolver.ErrorDomain";
 
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    [userInfo setObject:msg
-                 forKey:NSLocalizedDescriptionKey];
+    [userInfo setObject:msg forKey:NSLocalizedDescriptionKey];
     
     // Populate the error reference.
     NSError *error = [[NSError alloc] initWithDomain:domain

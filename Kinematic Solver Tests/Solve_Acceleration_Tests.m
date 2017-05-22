@@ -51,7 +51,7 @@
     NSError* error;
     
     [ self setValues:0 Time:1 InitVelo:5 FinVelo: 5 Answer:-1 ];
-    [ compute setBlankValue:@"time" andError:nil ];
+    [ compute setBlankValue:@"Time" andError:nil ];
     
     NSNumber* answer = [ compute calculateAcceleration: &error];
     
@@ -92,10 +92,10 @@
 }
 
 -(void)computationTests{
-    [ compute setBlankValue:@"displacement" andError:nil ];
+    [ compute setBlankValue:@"Displacement" andError:nil ];
     XCTAssertEqual(ans, [[compute calculateAcceleration:nil] doubleValue]);
     
-    [ compute setBlankValue:@"time" andError:nil ];
+    [ compute setBlankValue:@"Time" andError:nil ];
     XCTAssertEqual(ans, [[compute calculateAcceleration:nil] doubleValue]);
 
     [ compute setBlankValue:@"InitialVelocity" andError:nil ];
