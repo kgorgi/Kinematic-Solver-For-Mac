@@ -51,19 +51,19 @@
     //Print Answer as Alert Box
     switch ([ btnsSolveFor selectedRow ]) {
         case 0:
-            NSRunAlertPanel(@"Kinematic Equation Solver for Mac", @"The displacement is: %@ m", @"Close", nil, nil, [ ans stringValue ]);
+            NSRunAlertPanel(@"Kinematic Solver for Mac", @"The displacement is: %@ m", @"Close", nil, nil, [ ans stringValue ]);
             break;
         case 1:
-            NSRunAlertPanel(@"Kinematic Equation Solver for Mac", @"The time is: %@ s", @"Close", nil, nil, [ ans stringValue ]);
+            NSRunAlertPanel(@"Kinematic Solver for Mac", @"The time is: %@ s", @"Close", nil, nil, [ ans stringValue ]);
             break;
         case 2:
-            NSRunAlertPanel(@"Kinematic Equation Solver for Mac", @"The acceleration is: %@ m/s²", @"Close", nil, nil, [ ans stringValue ]);
+            NSRunAlertPanel(@"Kinematic Solver for Mac", @"The acceleration is: %@ m/s²", @"Close", nil, nil, [ ans stringValue ]);
             break;
         case 3:
-            NSRunAlertPanel(@"Kinematic Equation Solver for Mac", @"The initial velocity is: %@ m/s", @"Close", nil, nil, [ ans stringValue ]);
+            NSRunAlertPanel(@"Kinematic Solver for Mac", @"The initial velocity is: %@ m/s", @"Close", nil, nil, [ ans stringValue ]);
             break;
         case 4:
-            NSRunAlertPanel(@"Kinematic Equation Solver for Mac", @"The final velocity is: %@ m/s", @"Close", nil, nil, [ ans stringValue ]);
+            NSRunAlertPanel(@"Kinematic Solver for Mac", @"The final velocity is: %@ m/s", @"Close", nil, nil, [ ans stringValue ]);
             break;
         default:
             break;
