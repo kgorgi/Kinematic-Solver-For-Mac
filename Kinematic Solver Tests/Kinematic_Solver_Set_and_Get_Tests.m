@@ -40,7 +40,7 @@
 - (void)testSetTime {
     NSNumber *num = [[NSNumber alloc] initWithDouble:52.69];
     
-    [instance setTime:num];
+    [instance setTime:num andError: nil];
     
     XCTAssertTrue([[instance getTime] doubleValue] == 52.69);
     
@@ -74,25 +74,32 @@
 - (void)testNegativeTime {
     NSNumber *num = [[NSNumber alloc] initWithDouble:-5.0];
     
-    XCTAssertThrows([instance setTime:num], @"Failed to throw exception");
+    NSError* err;
+    
+    bool success = [instance setTime:num andError: &err];
+    
+    if(!success && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
-
 - (void)testSetBlankValueAccel {
-    [instance setBlankValue: @"acceleration"];
+    [instance setBlankValue: @"acceleration" andError: nil];
     
     XCTAssertTrue([[instance getBlankValue] isEqualToString:@"acceleration"]);
 }
 
 
 - (void)testSetBlankValueDis {
-    [instance setBlankValue: @"displacement"];
+    [instance setBlankValue: @"displacement" andError: nil];
     
     XCTAssertTrue([[instance getBlankValue] isEqualToString:@"displacement"]);
 }
 
 
 - (void)testSetBlankValueTime{
-    [instance setBlankValue: @"time"];
+    [instance setBlankValue: @"time" andError: nil];
     
     XCTAssertTrue([[instance getBlankValue] isEqualToString:@"time"]);
     
@@ -100,21 +107,29 @@
 
 
 - (void)testSetBlankValueInitVelo{
-    [instance setBlankValue: @"initialVelocity"];
+    [instance setBlankValue: @"InitialVelocity" andError: nil];
     
-    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"initialVelocity"]);
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"InitialVelocity"]);
 }
 
 
 - (void)testSetBlankValueFinVelo{
-    [instance setBlankValue: @"finalVelocity"];
+    [instance setBlankValue: @"FinalVelocity" andError: nil];
     
-    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"finalVelocity"]);
+    XCTAssertTrue([[instance getBlankValue] isEqualToString:@"FinalVelocity"]);
 }
 
 
 -(void)testSetBlankValueInvalid{
     
-    XCTAssertThrows([instance setBlankValue: @"macintosh"], @"Failed to throw invalid argument exception!");
+    NSError* err;
+    
+    bool success = [instance setBlankValue: @"macintosh" andError: &err];
+    
+    if(!success && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
 @end

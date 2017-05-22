@@ -14,7 +14,7 @@
 @interface SolveDisplacement : KinematicSolver
 
 -(id) init;
--(NSNumber*) calculateDisplacement;
+-(NSNumber*) calculateDisplacement: (NSError**) error;
 
 @end
 

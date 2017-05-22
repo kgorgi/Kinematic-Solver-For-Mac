@@ -28,12 +28,13 @@
 -(id) init;
 
 //Setters
--(void) setTime: (NSNumber*) time;
+-(bool) setTime: (NSNumber*) time andError: (NSError**) error;
 -(void) setDisplacement: (NSNumber*) displacement;
 -(void) setAcceleration: (NSNumber*) accel;
 -(void) setInitialVelocity: (NSNumber*) initVelocity;
 -(void) setFinalVelocity: (NSNumber*) finVelocity;
--(void) setBlankValue: (NSString*) value;
+-(bool) setBlankValue: (NSString*) value andError: (NSError**) error;
+-(void) setBlankValueTesting: (int) variable; //Note this method may only be used for testing;
 
 //Getters
 -(NSNumber*) getTime;
@@ -44,11 +45,10 @@
 -(NSString*) getBlankValue;
 
 //Calculator Specific Value, Convert Value to Double
-+(NSNumber*) convertToDouble: (NSString*) str;
++(NSNumber*) convertToDouble: (NSString*) str andError: (NSError**) error;
 
 //Exception Handling Logging
--(void) ExceptionHandle:(NSException*) ex;
-
++(NSError*) createError: (NSString*) msg Domain: (NSString*) dom Code:(int) c;
 @end
 
 #endif

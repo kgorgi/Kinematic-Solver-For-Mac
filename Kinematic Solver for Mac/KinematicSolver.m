@@ -20,21 +20,18 @@
 }
 
 //Setters
--(void) setTime: (NSString*) time {
-    @try {
-        if( [time doubleValue] <= 0) {
-            [ NSException raise:@"InvalidTime" format:@"Time Cannot Be Zero or Negative!" ];
-        }
-        else {
-            _T = [ time doubleValue];
-        }
-    }
-    @catch (NSException *ex) {
-        [ self ExceptionHandle: ex ];
-    }
-    @finally {
+-(bool) setTime: (NSNumber*) time andError: (NSError**) error{
+    if( [time doubleValue] <= 0) {
+       *error = [ KinematicSolver createError: @"Time Cannot be Set to Zero!"
+                         Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                         Code: 1 ];
+    } else {
+        _T = [ time doubleValue];
+        return true;
         
     }
+    
+    return false;
 }
 
 -(void) setDisplacement: (NSNumber*) displacement {
@@ -54,29 +51,30 @@
     _Vf = [ finVelocity doubleValue];
 }
 
--(void) setBlankValue:(NSString*)value {
-    @try {
-        _blankValueStr = [ [NSString alloc ] initWithString:value ];
-        if([_blankValueStr isEqualToString:@"displacement"])
-            _blankValue = 0;
-        else if([_blankValueStr isEqualToString:@"time"])
-            _blankValue = 1;
-        else if([_blankValueStr isEqualToString:@"acceleration"])
-            _blankValue = 2;
-        else if([_blankValueStr isEqualToString:@"initialVelocity"])
-            _blankValue = 3;
-        else if([_blankValueStr isEqualToString:@"finalVelocity"])
-            _blankValue = 4;
-        else
-            [ NSException raise:@"Invalid Value Given" format:@"setBlankValue parameter is not valid." ];
+-(bool) setBlankValue:(NSString*)value andError: (NSError**) error {
+    _blankValueStr = [ [NSString alloc ] initWithString:value ];
+    if([_blankValueStr isEqualToString:@"displacement"]){
+        _blankValue = 0;
+    } else if([_blankValueStr isEqualToString:@"time"]){
+        _blankValue = 1;
+    }else if([_blankValueStr isEqualToString:@"acceleration"]){
+        _blankValue = 2;
+    } else if([_blankValueStr isEqualToString:@"InitialVelocity"]){
+        _blankValue = 3;
+    }else if([_blankValueStr isEqualToString:@"FinalVelocity"]){
+        _blankValue = 4;
+    }else{
+        *error = [ KinematicSolver createError: @"setBlankValue parameter is not valid!"
+                                        Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                          Code: 2 ];
+        return false;
+    }
+    
+    return true;
+}
 
-    }
-    @catch (NSException *ex) {
-        [ self ExceptionHandle: ex];
-    }
-    @finally {
-        
-    }
+-(void) setBlankValueTesting: (int) value{
+    _blankValue = value;
 }
 
 //Getters
@@ -105,27 +103,45 @@
     return _blankValueStr;
 }
 
-//Exception Handling
--(void) ExceptionHandle:(NSException*) ex {
-    //Exception Handling Code
-    NSLog(@"ERROR: %@", [ ex reason ]);
+
+/* Error Codes:
+ * 1 = Time Set t<= 0
+ * 2 = setValueParameter Invalid
+ * 3 = convertToDouble Error
+ * 4 = DivideByZero Error
+ * 5 = No BlankValue Selected
+ */
++(NSError*) createError: (NSString*) msg Domain: (NSString*) dom Code:(int) c {
+    // Create the error.
+    NSString *domain = @"com.Gorgichuk.KinematicSolver.ErrorDomain";
+
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    [userInfo setObject:msg
+                 forKey:NSLocalizedDescriptionKey];
     
-    @throw ex;
-    
-    //NSRunAlertPanel(@"Kinematic Solver For Mac",@"ERROR: %@", @"Close", nil, nil, [ex reason]);
+    // Populate the error reference.
+    NSError *error = [[NSError alloc] initWithDomain:domain
+                                        code:c
+                                    userInfo:userInfo];
+    return error;
 }
 
+
+//NSRunAlertPanel(@"Kinematic Solver For Mac",@"ERROR: %@", @"Close", nil, nil, [ex reason]);
+
+
 //Convert To Double
-+(NSNumber*) convertToDouble: (NSString*) str {
++(NSNumber*) convertToDouble: (NSString*) str andError: (NSError**) error{
     NSNumberFormatter *f = [ [ NSNumberFormatter alloc ] init ];
     f.numberStyle = NSNumberFormatterDecimalStyle;
     NSNumber *num = [ f numberFromString: str ];
-    [ f release ];
     
     if(num == nil)
     {
-        [ NSException raise:@"NotValidNum" format:@"A Value(s) Entered is Not a Valid Number" ];
-
+        *error = [ KinematicSolver createError: @"A Value(s) Entered is Not a Valid Number!"
+                                        Domain: @"com.Gorgichuk.KinematicSolver.UserDomain"
+                                          Code: 3 ];
+        return nil;
     }
     return num;
 }

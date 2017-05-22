@@ -26,66 +26,106 @@
 }
 
 -(void)testBasic{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"5"] doubleValue] == 5);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"5" andError: nil] doubleValue] == 5);
 }
 
 -(void)testBasicNegative{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-5"] doubleValue] == -5);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-5" andError: nil] doubleValue] == -5);
 }
 
 -(void)testAdvancedNegative{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-2356215"] doubleValue] == -2356215);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-2356215" andError: nil] doubleValue] == -2356215);
 }
 
 
 -(void)testBasicDecimal{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"5.5"] doubleValue] == 5.5);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"5.5" andError: nil] doubleValue] == 5.5);
 }
 
 -(void)testBasicNegativeDecimal{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-5.5"] doubleValue] == -5.5);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-5.5" andError: nil] doubleValue] == -5.5);
 }
 
 -(void)testAdvancedNegativeDecimal{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-6346346.523423"] doubleValue] == -6346346.523423);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-6346346.523423" andError: nil] doubleValue] == -6346346.523423);
 }
 
 
 -(void)testBasicExponential{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"5e2"] doubleValue] == 500);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"5e2" andError: nil] doubleValue] == 500);
 }
 
 -(void)testBasicNegativeExponential{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-5e2"] doubleValue] == -500);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-5e2" andError: nil] doubleValue] == -500);
 }
 
 
 -(void)testAdvancedNegativeExponential{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-507.25463221e5"] doubleValue] == -50725463.221);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-507.25463221e5" andError: nil] doubleValue] == -50725463.221);
 }
 
 -(void)testAdvancedDoubleNegativeExponential{
-    XCTAssertTrue([[KinematicSolver convertToDouble: @"-507.25463221e-2"] doubleValue] == -5.0725463221);
+    XCTAssertTrue([[KinematicSolver convertToDouble: @"-507.25463221e-2" andError: nil] doubleValue] == -5.0725463221);
 }
 
 -(void)testInvalidBasic{
-     XCTAssertThrows([[KinematicSolver convertToDouble: @"apple"] doubleValue]);
+    NSError* err;
+    
+    NSNumber* result = [KinematicSolver convertToDouble: @"macintosh" andError: &err];
+    
+    if(result == nil && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
 
 -(void)testInvalidSpaces{
-    XCTAssertThrows([[KinematicSolver convertToDouble: @"100 00"] doubleValue]);
+    NSError* err;
+    
+    NSNumber* result = [KinematicSolver convertToDouble: @"100 00" andError: &err];
+    
+    if(result == nil && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
 
 -(void)testInvalidDoubleNegative{
-    XCTAssertThrows([[KinematicSolver convertToDouble: @"-5-52"] doubleValue]);
+    NSError* err;
+    
+    NSNumber* result = [KinematicSolver convertToDouble: @"-5-52" andError: &err];
+    
+    if(result == nil && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
 
 -(void)testInvalidDoubleNegativeExponent{
-    XCTAssertThrows([[KinematicSolver convertToDouble: @"-5e-52-3"] doubleValue]);
+    NSError* err;
+    
+    NSNumber* result = [KinematicSolver convertToDouble: @"-5e-52-3" andError: &err];
+    
+    if(result == nil && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
 
 -(void)testInvalidDoubleDecimalExponent{
-    XCTAssertThrows([[KinematicSolver convertToDouble: @"5.2e5.2"] doubleValue]);
+    NSError* err;
+    
+    NSNumber* result = [KinematicSolver convertToDouble: @"5.2e5.2" andError: &err];
+    
+    if(result == nil && err != nil){
+        return;
+    }
+    
+    XCTFail();
 }
 
 @end

@@ -41,7 +41,7 @@
         return _answer;
     }
     @catch (NSException *ex) {
-        [ self ExceptionHandle:ex ];
+        //[ self ExceptionHandle:ex ];
     }
     @finally {
         
